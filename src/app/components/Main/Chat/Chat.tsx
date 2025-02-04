@@ -24,7 +24,7 @@ const Chat = () => {
 
   const renderResponse = () => {
     return (
-      <div>
+      <div className="pb-4">
         {messages.map((m, i) => {
           return (
             <div key={m.id}>
@@ -40,15 +40,21 @@ const Chat = () => {
   return (
     <div ref={chatContainerRef}>
       {renderResponse()}
-      <form onSubmit={handleSubmit}>
+      <form
+        className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 max-w-96 p-4 rounded-full"
+        onSubmit={handleSubmit}
+      >
         <input
+          className="bg-transparent"
           name="input-field"
           type="text"
           placeholder="say something"
           value={input}
           onChange={handleInputChange}
         />
-        <button type="submit">Send</button>
+        <button className="bg-white/20 p-2 rounded-full" type="submit">
+          Send
+        </button>
       </form>
     </div>
   );

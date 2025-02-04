@@ -3,7 +3,7 @@ import Chat from "./Chat";
 
 const Main = () => {
   return (
-    <main className="flex flex-col gap-8 row-start-2 bg-red-100 items-center sm:items-start">
+    <main className="flex flex-col gap-8 bg-black/20 items-center">
       <Chat />
     </main>
   );
