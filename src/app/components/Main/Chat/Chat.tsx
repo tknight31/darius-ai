@@ -38,21 +38,21 @@ const Chat = () => {
   };
 
   return (
-    <div ref={chatContainerRef}>
+    <div className="min-w-[600px]" ref={chatContainerRef}>
       {renderResponse()}
       <form
-        className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 max-w-96 p-4 rounded-full"
+        className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 min-w-96 w-full p-3 rounded-full glass"
         onSubmit={handleSubmit}
       >
         <input
-          className="bg-transparent"
+          className="transition bg-transparent rounded-full focus:outline-none w-full px-1 "
           name="input-field"
           type="text"
           placeholder="say something"
           value={input}
           onChange={handleInputChange}
         />
-        <button className="bg-white/20 p-2 rounded-full" type="submit">
+        <button className="bg-white/20 p-2 rounded-full glass" type="submit">
           Send
         </button>
       </form>
