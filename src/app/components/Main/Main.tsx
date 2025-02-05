@@ -1,9 +1,11 @@
 import React from "react";
 import Chat from "./Chat";
+import Welcome from "./Welcome";
 
 const Main = () => {
   return (
-    <main className="flex flex-col gap-8 bg-black/20 items-center">
+    <main className="grid grid-rows-[1fr_min-content] mx-auto">
+      <Welcome />
       <Chat />
     </main>
   );
