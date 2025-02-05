@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {
+  Roboto_Mono,
+  Libre_Baskerville,
+  Abril_Fatface,
+} from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  variable: "--font-libre-baskerville",
+  weight: ["400", "700"],
+  display: "swap",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+  display: "swap",
+});
+const abrilFatface = Abril_Fatface({
+  subsets: ["latin"],
+  variable: "--font-abril-fatface",
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${libreBaskerville.variable} ${robotoMono.className} ${abrilFatface.variable} antialiased`}
       >
         {children}
       </body>

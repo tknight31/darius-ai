@@ -12,6 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        libre: ["var(--font-libre-baskerville)", "serif"],
+        mono: ["var(--font-roboto-mono)", "monospace"],
+        abril: ["var(--font-abril-fatface)", "serif"],
+      },
     },
   },
   plugins: [],
