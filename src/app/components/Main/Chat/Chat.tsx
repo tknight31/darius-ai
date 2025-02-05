@@ -38,7 +38,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="min-w-[600px]" ref={chatContainerRef}>
+    <div className="w-full" ref={chatContainerRef}>
       {renderResponse()}
       <form
         className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 min-w-96 w-full p-3 rounded-full glass"
