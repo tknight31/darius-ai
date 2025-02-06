@@ -109,6 +109,26 @@ h6 {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+button.glass:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-color: transparent;
+  svg {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+  }
+}
+
+.dark-glass {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
 .gradient-bg {
   width: 100vw;
   height: 100vh;
