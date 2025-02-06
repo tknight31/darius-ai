@@ -1,5 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { useChat } from "ai/react";
+import Image from "next/image";
+import SendArrowIcon from "@/app/components/Icons/SendArrowIcon";
+import IconButton from "@/app/components/common/IconButton";
 
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
@@ -24,12 +27,41 @@ const Chat = () => {
 
   const renderResponse = () => {
     return (
-      <div className="pb-4">
+      <div className="p-6 pb-4" ref={chatContainerRef}>
         {messages.map((m, i) => {
+          const isUser = m.role === "user";
+          const isLast = i === messages.length - 1;
           return (
-            <div key={m.id}>
-              <p>{m.content}</p>
-              {i < messages.length - 1 && <hr />}
+            <div key={m.id} className="flex flex-cols gap-2 mb-4">
+              <Image
+                className="rounded-full size-10 opacity-80"
+                src={isUser ? "/user-avatar.png" : "/darius-avatar.jpg"}
+                alt={isUser ? "user" : "darius"}
+                width={80}
+                height={80}
+              />
+              <div>
+                <p className="text-white/70 text-xs mb-[2px]">
+                  {isUser ? "You" : "Darius"}
+                </p>
+                <p
+                  className={`p-2 ${
+                    isUser ? "glass" : "dark-glass"
+                  } inline-block rounded-xl backdrop-blur-sm shadow-md ${
+                    !isLast && "mb-4"
+                  }`}
+                >
+                  <span
+                    className={
+                      isUser
+                        ? "text-white"
+                        : "bg-gradient-to-bl from-yellow-600 to-yellow-200 bg-clip-text text-transparent leading-normal"
+                    }
+                  >
+                    {m.content}
+                  </span>
+                </p>
+              </div>
             </div>
           );
         })}
@@ -38,7 +70,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="w-full" ref={chatContainerRef}>
+    <div className="w-full grid grid-rows-[1fr_min-content]">
       {renderResponse()}
       <form
         className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 min-w-96 w-full p-3 rounded-full glass"
@@ -52,9 +84,7 @@ const Chat = () => {
           value={input}
           onChange={handleInputChange}
         />
-        <button className="bg-white/20 p-2 rounded-full glass" type="submit">
-          Send
-        </button>
+        <IconButton icon={<SendArrowIcon />} type="submit" />
       </form>
     </div>
   );
