@@ -5,14 +5,14 @@ const Welcome = () => {
   return (
     <div className="flex flex-col gap-3 text-center align-center justify-center">
       <Image
-        className="mx-auto"
-        src="/darius.svg"
+        className="mx-auto mix-blend-lighten w-[240px] mb-4"
+        src="/photo.png"
         alt="ask darius"
-        width={120}
-        height={188.57}
+        width={285}
+        height={349}
       />
       <h1 className="text-5xl">I feel... everything.</h1>
-      <p>Hey... yeah. Just vibin’, you know? What’s on your mind?</p>
+      <p>Ask me anything.. What’s on your mind?</p>
     </div>
   );
 };
