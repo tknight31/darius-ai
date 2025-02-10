@@ -27,7 +27,7 @@ const Chat = () => {
 
   const renderResponse = () => {
     return (
-      <div className="p-6 pb-4" ref={chatContainerRef}>
+      <div className="flex-1 p-6 pb-4 overflow-y-auto" ref={chatContainerRef}>
         {messages.map((m, i) => {
           const isUser = m.role === "user";
           const isLast = i === messages.length - 1;
@@ -70,7 +70,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="w-full grid grid-rows-[1fr_min-content]">
+    <div className="w-full h-full flex flex-col max-h-[calc(100vh-500px-50px-8rem)] overflow-hidden">
       {renderResponse()}
       <form
         className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 min-w-96 w-full p-3 rounded-full glass"
