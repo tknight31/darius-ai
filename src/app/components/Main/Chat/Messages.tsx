@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Message } from "ai/react";
 
 const Messages = ({ messages }: { messages: Message[] }) => {
@@ -20,12 +21,23 @@ const Messages = ({ messages }: { messages: Message[] }) => {
   }, [messages]);
 
   return (
-    <div className="flex-1 p-6 pb-4 overflow-y-auto" ref={chatContainerRef}>
+    <div
+      className="flex flex-col flex-1 gap-4 p-6 overflow-y-auto"
+      ref={chatContainerRef}
+    >
       {messages.map((m, i) => {
         const isUser = m.role === "user";
         const isLast = i === messages.length - 1;
+        const isFirst = i === 0;
         return (
-          <div key={m.id} className="flex flex-cols gap-2 mb-4">
+          <motion.div
+            key={m.id}
+            className={`flex flex-cols gap-2 ${isFirst && "mt-auto"}`}
+            initial={{ opacity: 0, y: 70 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            layout
+          >
             <Image
               className="rounded-full size-10 opacity-80"
               src={isUser ? "/user-avatar.png" : "/darius-avatar.jpg"}
@@ -55,7 +67,7 @@ const Messages = ({ messages }: { messages: Message[] }) => {
                 </span>
               </p>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>
