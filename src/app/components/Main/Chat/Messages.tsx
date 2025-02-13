@@ -35,7 +35,13 @@ const Messages = ({ messages }: { messages: Message[] }) => {
             className={`flex flex-cols gap-2 ${isFirst && "mt-auto"}`}
             initial={{ opacity: 0, y: 70 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{
+              duration: 0.4,
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              bounce: 0.1,
+            }}
             layout
           >
             <Image
