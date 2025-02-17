@@ -18,10 +18,10 @@ const Chat = ({
   handleSubmit,
 }: ChatProps) => {
   return (
-    <div className="w-full h-full flex flex-col max-h-[calc(100vh-100px-50px-8rem)] overflow-hidden">
+    <div className="w-full h-full flex flex-col max-h-[calc(100vh-100px-50px-8rem)] px-6 overflow-hidden">
       <Messages messages={messages} />
       <form
-        className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 min-w-96 w-full p-3 rounded-full glass"
+        className="grid grid-cols-[1fr_min-content] gap-2 justify-between bg-white/30 w-full p-3 rounded-full glass"
         onSubmit={handleSubmit}
       >
         <input
